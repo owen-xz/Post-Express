@@ -1,14 +1,14 @@
 {
 	"variables": [],
 	"info": {
-		"name": "todoList with MongoDB - heroku",
+		"name": "post with MongoDB - heroku",
 		"_postman_id": "f8e07fac-4b55-03c1-3510-485c9fef448d",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "取得所有代辦",
+			"name": "取得所有貼文",
 			"request": {
 				"url": "https://infinite-waters-19748.herokuapp.com/posts",
 				"method": "GET",
@@ -19,7 +19,7 @@
 			"response": []
 		},
 		{
-			"name": "新增代辦事項",
+			"name": "新增貼文",
 			"request": {
 				"url": "https://infinite-waters-19748.herokuapp.com/posts",
 				"method": "POST",
@@ -39,7 +39,7 @@
 			"response": []
 		},
 		{
-			"name": "刪除所有代辦",
+			"name": "刪除所有貼文",
 			"request": {
 				"url": "https://infinite-waters-19748.herokuapp.com/posts",
 				"method": "DELETE",
@@ -50,7 +50,7 @@
 			"response": []
 		},
 		{
-			"name": "刪除單筆代辦",
+			"name": "刪除單則貼文",
 			"request": {
 				"url": "https://infinite-waters-19748.herokuapp.com/posts/0e25864d-5f48-4198-9128-dfe92b566f13",
 				"method": "DELETE",
@@ -61,7 +61,7 @@
 			"response": []
 		},
 		{
-			"name": "編輯代辦事項",
+			"name": "編輯貼文",
 			"request": {
 				"url": "https://infinite-waters-19748.herokuapp.com/posts/0e25864d-5f48-4198-9128-dfe92b566f13",
 				"method": "PATCH",
