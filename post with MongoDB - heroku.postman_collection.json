@@ -21,7 +21,7 @@
 		{
 			"name": "新增貼文",
 			"request": {
-				"url": "https://infinite-waters-19748.herokuapp.com/posts",
+				"url": "https://infinite-waters-19748.herokuapp.com/post",
 				"method": "POST",
 				"header": [
 					{
@@ -32,7 +32,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"title\": \"test\"\n}"
+					"raw": "{\n\t\"contentMessage\": \"test\",\n\t\"author\": \"627f9fbba37deb15569cb1c1\"\n}"
 				},
 				"description": ""
 			},
@@ -52,7 +52,7 @@
 		{
 			"name": "刪除單則貼文",
 			"request": {
-				"url": "https://infinite-waters-19748.herokuapp.com/posts/0e25864d-5f48-4198-9128-dfe92b566f13",
+				"url": "https://infinite-waters-19748.herokuapp.com/post/627a700cd49dc847ffa2ce06",
 				"method": "DELETE",
 				"header": [],
 				"body": {},
@@ -63,7 +63,7 @@
 		{
 			"name": "編輯貼文",
 			"request": {
-				"url": "https://infinite-waters-19748.herokuapp.com/posts/0e25864d-5f48-4198-9128-dfe92b566f13",
+				"url": "https://infinite-waters-19748.herokuapp.com/post/627a700cd49dc847ffa2ce06",
 				"method": "PATCH",
 				"header": [
 					{
@@ -74,7 +74,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"title\": \"patch\"\n}"
+					"raw": "{\n\t\"contentMessage\": \"hello\"\n}"
 				},
 				"description": ""
 			},

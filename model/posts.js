@@ -10,7 +10,8 @@ const post = new mongoose.Schema(
             type: String
         },
         author: {
-            type: String,
+            type: mongoose.Schema.ObjectId,
+            ref: 'user',
             require: [true, 'author 必填']
         },
         likes: {

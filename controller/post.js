@@ -4,7 +4,12 @@ const handleErr = require('../handler/handleErr')
 
 const postController = {
     async getPosts(req, res) {
-        const posts = await Post.find()
+        const timeSort = req.query.timeSort == "asc" ? 'createdAt' : '-createdAt'
+        const keyword = req.query.keyword ? {"contentMessage": new RegExp(req.query.keyword)} : {};
+        const posts = await Post.find(keyword).populate({
+            path: 'author',
+            select: 'name photo'
+        }).sort(timeSort);
         handleSuccess(res, posts)
     },
     async createPost(req, res) {

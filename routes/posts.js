@@ -6,10 +6,10 @@ const postController = require('../controller/post')
 var router = express.Router();
 
 /* GET users listing. */
-router.get('/', postController.getPosts)
-router.post('/', postController.createPost)
-router.delete('/', postController.deletePosts)
-router.delete('/:id', postController.deletePost)
-router.patch('/:id', postController.editPost)
+router.get('/posts/', postController.getPosts)
+router.post('/post/', postController.createPost)
+router.delete('/posts/', postController.deletePosts)
+router.delete('/post/:id', postController.deletePost)
+router.patch('/post/:id', postController.editPost)
 
 module.exports = router;
