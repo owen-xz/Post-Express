@@ -7,6 +7,9 @@ const mongoose = require('mongoose')
 var cors = require('cors')
 const dotenv = require('dotenv')
 
+var handleErrorDev = require('./handler/handleErrorDev')
+var handleErrorProd = require('./handler/handleErrorProd')
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var postsRouter = require('./routes/posts');
@@ -34,24 +37,48 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors())
 
+process.on('uncaughtException', err => {
+  //記錄錯誤下來，等到服務都處理完後，停掉該 process
+	console.error('Uncaughted Exception！')
+	console.error(err);
+	process.exit(1);
+});
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use(postsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  next(createError(404));
+  res.status(404).send({
+    status: false,
+    message: '您的路由不存在，請檢查路徑是否正確'
+  })
 });
 
 // error handler
 app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+  err.statusCode = err.statusCode || 500
+  if(process.env.NODE_ENV === 'dev') {
+    return handleErrorDev(err, res)
+  }
+  if (err.name === "ValidationError") {
+    err.statusCode = 400
+    err.message = "資料欄位未填寫正確，請重新輸入！";
+    err.isOperational = true;
+  }
+  if (err.name === "CastError") {
+    err.statusCode = 400
+    err.message = "查無此 Id！";
+    err.isOperational = true;
+  }
+  handleErrorProd(err, res);
+});
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+// 未捕捉到的 catch
+process.on('unhandledRejection', (reason, promise) => {
+  console.error('未捕捉到的 rejection：', promise, '原因：', reason);
+  // 記錄於 log 上
 });
 
 module.exports = app;
