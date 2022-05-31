@@ -8,13 +8,23 @@ const user = new mongoose.Schema(
         },
         email: {
             type: String,
-            required: [true, 'Email 必填'],
+            required: [true, 'email 必填'],
             unique: true,
             lowercase: true,
             select: false
         },
         photo: {
             type: String
+        },
+        password: {
+            type: String,
+            required: [true, 'password 必填'],
+            select: false
+        },
+        gender: {
+            type: String,
+            enum: ['1', '0'],
+            required: [true, 'gender 必填']
         }
     },
     {

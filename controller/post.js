@@ -18,23 +18,23 @@ const postController = {
         const { body } = req
         const { contentMessage, author } = body
         if(!contentMessage || !contentMessage.trim()) {
-            return appErr(400, '請輸入貼文內容', next)
+            return next(appErr(400, '請輸入貼文內容', next))
         }
         if(!author) {
-            return appErr(400, '請輸入使用者 Id', next)
+            return next(appErr(400, '請輸入使用者 Id', next))
         }
         await User.findById(author)
-        const post = await Post.create(body)
-        handleSuccess(res, post)
+        await Post.create(body)
+        handleSuccess(res, '')
     }),
     deletePosts: handleErrAsync(async (req, res, next) => {
         await Post.deleteMany({})
-        handleSuccess(res, [])
+        handleSuccess(res, '')
     }),
     deletePost: handleErrAsync(async (req, res, next) => {
         const { id } = req.params
-        const post = await Post.findByIdAndDelete(id)
-        handleSuccess(res, post)
+        await Post.findByIdAndDelete(id)
+        handleSuccess(res, '')
     }),
     editPost: handleErrAsync(async (req, res, next) => {
         const { body } = req
@@ -43,8 +43,8 @@ const postController = {
         if(!contentMessage || !contentMessage.trim()) {
             return next(appErr(400, '請輸入貼文內容', next))
         }
-        const post = await Post.findByIdAndUpdate(id, body)
-        handleSuccess(res, post)
+        await Post.findByIdAndUpdate(id, body)
+        handleSuccess(res, '')
     })
 }
 module.exports = postController

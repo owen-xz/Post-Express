@@ -45,7 +45,7 @@ process.on('uncaughtException', err => {
 });
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/users/', usersRouter);
 app.use(postsRouter);
 
 // catch 404 and forward to error handler
@@ -70,6 +70,11 @@ app.use(function(err, req, res, next) {
   if (err.name === "CastError") {
     err.statusCode = 400
     err.message = "查無此 Id！";
+    err.isOperational = true;
+  }
+  if (err.name === "JsonWebTokenError") {
+    err.statusCode = 401
+    err.message = "登入過期或驗證失敗！";
     err.isOperational = true;
   }
   handleErrorProd(err, res);
