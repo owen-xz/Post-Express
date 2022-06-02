@@ -1,7 +1,7 @@
 const Post = require('../model/posts')
 const User = require('../model/users')
 const handleSuccess = require('../handler/handleSuccess')
-const appErr = require('../handler/appError')
+const appErr = require('../handler/appErr')
 const handleErrAsync = require('../handler/handleErrAsync')
 
 const postController = {
@@ -33,7 +33,10 @@ const postController = {
     }),
     deletePost: handleErrAsync(async (req, res, next) => {
         const { id } = req.params
-        await Post.findByIdAndDelete(id)
+        const post = await Post.findByIdAndDelete(id)
+        if(!post) {
+            return next(appErr(400, '查無此 Id！', next))
+        }
         handleSuccess(res, '')
     }),
     editPost: handleErrAsync(async (req, res, next) => {
@@ -43,7 +46,10 @@ const postController = {
         if(!contentMessage || !contentMessage.trim()) {
             return next(appErr(400, '請輸入貼文內容', next))
         }
-        await Post.findByIdAndUpdate(id, body)
+        const post = await Post.findByIdAndUpdate(id, body)
+        if(!post) {
+            return next(appErr(400, '查無此 Id！', next))
+        }
         handleSuccess(res, '')
     })
 }

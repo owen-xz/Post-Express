@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken")
 const User = require('../model/users')
-const appErr = require('../handler/appError')
+const appErr = require('./appErr')
 const handleErrAsync = require('../handler/handleErrAsync')
 
 const generateSendJWT = (user, res) => {
