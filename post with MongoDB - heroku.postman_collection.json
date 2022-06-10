@@ -203,6 +203,29 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "upload",
+			"description": "",
+			"item": [
+				{
+					"name": "上傳圖片",
+					"request": {
+						"url": "https://infinite-waters-19748.herokuapp.com/upload/img",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOTQ5NDRkMjhhNDc1ZmRmYWRlYWU2ZiIsImlhdCI6MTY1NDg1MjMxMCwiZXhwIjoxNjU1NDU3MTEwfQ.Pp_fSaqp2lF_znlmsDV2W48E7Co592QdGtsDKtRBjmw",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
