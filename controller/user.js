@@ -5,7 +5,6 @@ const handleSuccess = require('../handler/handleSuccess')
 const appErr = require('../handler/appErr')
 const handleErrAsync = require('../handler/handleErrAsync')
 const { generateSendJWT } = require('../handler/auth')
-const handleErrorAsync = require('../handler/handleErrAsync')
 
 const userController = {
   signUp: handleErrAsync(async(req, res, next) => {
@@ -85,7 +84,7 @@ const userController = {
     const user = await User.findById(req.userId)
     handleSuccess(res, user)
   }),
-  patchUserProfile: handleErrorAsync(async(req, res, next) => {
+  patchUserProfile: handleErrAsync(async(req, res, next) => {
     const { body } = req
     const { name, gender, photo } = body
     if(!name) {
