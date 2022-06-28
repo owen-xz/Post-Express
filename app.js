@@ -74,7 +74,7 @@ app.use(function(err, req, res, next) {
     err.message = "查無此 Id！";
     err.isOperational = true;
   }
-  if (err.name === "JsonWebTokenError") {
+  if (err.name === "JsonWebTokenError" || err.name === "TokenExpiredError") {
     err.statusCode = 401
     err.message = "登入過期或驗證失敗！";
     err.isOperational = true;

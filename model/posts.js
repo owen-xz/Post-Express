@@ -14,10 +14,23 @@ const post = new mongoose.Schema(
             ref: 'user',
             require: [true, 'author 必填']
         },
-        likes: {
-            type: Number,
-            default: 0
-        },
+        likes: [
+            {
+                type: mongoose.Schema.ObjectId,
+                ref: 'user'
+            }
+        ],
+        comments: [
+            {
+                user: {
+                    type: mongoose.Schema.ObjectId,
+                    ref: 'user'
+                },
+                commentMessage: {
+                    type: String
+                }
+            }
+        ],
         createdAt: {
             type: Date,
             default: Date.now,

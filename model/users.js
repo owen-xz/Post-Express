@@ -25,7 +25,19 @@ const user = new mongoose.Schema(
             type: String,
             enum: ['1', '0'],
             required: [true, 'gender 必填']
-        }
+        },
+        follows: [
+            {
+                user: {
+                    type: mongoose.Schema.ObjectId,
+                    ref: 'user'
+                },
+                createdAt: {
+                    type: Date,
+                    default: Date.now
+                }
+            }
+        ]
     },
     {
         versionKey: false
