@@ -83,6 +83,82 @@
 						"description": ""
 					},
 					"response": []
+				},
+				{
+					"name": "按讚貼文",
+					"request": {
+						"url": "https://infinite-waters-19748.herokuapp.com/post/62b410912e8d3405d66ff246/like",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOTQ5NDRkMjhhNDc1ZmRmYWRlYWU2ZiIsImlhdCI6MTY1NjM5ODgyMCwiZXhwIjoxNjU3MDAzNjIwfQ.nPdJQmK3L4MV0Et2hqF3q2eA-avzDZlg6rRQid9Hm-Q",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "取消按讚貼文",
+					"request": {
+						"url": "https://infinite-waters-19748.herokuapp.com/post/62b410912e8d3405d66ff246/unlike",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOTQ5NDRkMjhhNDc1ZmRmYWRlYWU2ZiIsImlhdCI6MTY1NjM5ODgyMCwiZXhwIjoxNjU3MDAzNjIwfQ.nPdJQmK3L4MV0Et2hqF3q2eA-avzDZlg6rRQid9Hm-Q",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "取得個人所有貼文",
+					"request": {
+						"url": "https://infinite-waters-19748.herokuapp.com/posts/user/627f9fbba37deb15569cb1c1",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOTQ5NDRkMjhhNDc1ZmRmYWRlYWU2ZiIsImlhdCI6MTY1NjM5ODgyMCwiZXhwIjoxNjU3MDAzNjIwfQ.nPdJQmK3L4MV0Et2hqF3q2eA-avzDZlg6rRQid9Hm-Q",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "新增留言",
+					"request": {
+						"url": "https://infinite-waters-19748.herokuapp.com/posts/62b410912e8d3405d66ff246/comment",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOTQ5NDRkMjhhNDc1ZmRmYWRlYWU2ZiIsImlhdCI6MTY1NjM5ODgyMCwiZXhwIjoxNjU3MDAzNjIwfQ.nPdJQmK3L4MV0Et2hqF3q2eA-avzDZlg6rRQid9Hm-Q",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"commentMessage\": \"test comment\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
 				}
 			]
 		},
@@ -198,6 +274,74 @@
 							"mode": "raw",
 							"raw": "{\n\t\"name\": \"owen\",\n\t\"gender\": \"1\"\n}"
 						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "取得按讚列表",
+					"request": {
+						"url": "https://infinite-waters-19748.herokuapp.com/users/getLikeList",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOTQ5NDRkMjhhNDc1ZmRmYWRlYWU2ZiIsImlhdCI6MTY1NjM5ODgyMCwiZXhwIjoxNjU3MDAzNjIwfQ.nPdJQmK3L4MV0Et2hqF3q2eA-avzDZlg6rRQid9Hm-Q",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "取得追蹤列表",
+					"request": {
+						"url": "https://infinite-waters-19748.herokuapp.com/users/following",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOTQ5NDRkMjhhNDc1ZmRmYWRlYWU2ZiIsImlhdCI6MTY1NjM5ODgyMCwiZXhwIjoxNjU3MDAzNjIwfQ.nPdJQmK3L4MV0Et2hqF3q2eA-avzDZlg6rRQid9Hm-Q",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "追蹤朋友",
+					"request": {
+						"url": "https://infinite-waters-19748.herokuapp.com/users/627f9fbba37deb15569cb1c1/follow",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOTQ5NDRkMjhhNDc1ZmRmYWRlYWU2ZiIsImlhdCI6MTY1NjM5ODgyMCwiZXhwIjoxNjU3MDAzNjIwfQ.nPdJQmK3L4MV0Et2hqF3q2eA-avzDZlg6rRQid9Hm-Q",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "取消追蹤朋友",
+					"request": {
+						"url": "https://infinite-waters-19748.herokuapp.com/users/627f9fbba37deb15569cb1c1/unfollow",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOTQ5NDRkMjhhNDc1ZmRmYWRlYWU2ZiIsImlhdCI6MTY1NjM5ODgyMCwiZXhwIjoxNjU3MDAzNjIwfQ.nPdJQmK3L4MV0Et2hqF3q2eA-avzDZlg6rRQid9Hm-Q",
+								"description": ""
+							}
+						],
+						"body": {},
 						"description": ""
 					},
 					"response": []
